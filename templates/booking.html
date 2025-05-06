@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}Book Tickets{% endblock %}
+
+{% block content %}
+    <h2>Book Tickets</h2>
+    <p>Movie: {{ showtime.movie.title }}</p>
+    <p>Date: {{ showtime.show_date }}</p>
+    <p>Time: {{ showtime.show_time }}</p>
+    <p>Available Seats: {{ showtime.available_seats }}</p>
+    <form method="POST">
+        <label for="name">Your Name:</label>
+        <input type="text" id="name" name="name" required>
+        <label for="seats">Number of Seats:</label>
+        <input type="number" id="seats" name="seats" min="1" max="{{ showtime.available_seats }}" required>
+        <button type="submit">Confirm Booking</button>
+    </form>
+{% endblock %}
